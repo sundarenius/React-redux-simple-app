@@ -1,0 +1,1 @@
+export const UPDATE_DUMMY = 'UPDATE_DUMMY'
