@@ -1,4 +1,4 @@
-SUPER simple ADD/DELETE IMAGES React and Redux app.
+SUPER simple ADD/DELETE IMAGES Archive built with React and Redux.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
