@@ -7,31 +7,54 @@ import {
   // Link
 } from 'react-router-dom'
 
-import Main from './pages/Main'
-import Profile from './pages/Profile'
-import Header from './components/Header'
-import Footer from './components/Footer'
-import Container from '@material-ui/core/Container';
+import { connect } from 'react-redux'
+import { setSidebar } from '~/redux/actions/actions'
 
-const App = () => {
+import Main from '~/pages/Main'
+import Archive from '~/pages/Archive'
+import Header from '~/components/Header'
+import Footer from '~/components/Footer'
+import Container from '@material-ui/core/Container'
+import Sidebar from '~/components/Sidebar'
+
+const App = (props) => {
+  const setSidebar = () => {
+    return props.setSidebar(!props.sidebar)
+  }
+
   return (
     <React.Fragment>
-      <Header />
       <Router>
+        <Header
+          setSidebar={setSidebar} />
+        <Sidebar
+          setSidebar={setSidebar}
+          sidebar={props.sidebar} />
         <Container maxWidth="sm">
           <Switch>
             <Route exact path="/">
               <Main />
             </Route>
-            <Route path="/profile">
-              <Profile />
+            <Route path="/archive">
+              <Archive />
             </Route>
           </Switch>
         </Container>
+        <Footer />
       </Router>
-      <Footer />
     </React.Fragment>
   )
 }
 
-export default App
+const mapStateToProps = (state) => ({
+  sidebar: state.sidebar
+})
+
+const mapActionsToProps = {
+  setSidebar
+}
+
+export default connect(
+  mapStateToProps,
+  mapActionsToProps
+)(App)

@@ -1,14 +1,10 @@
 import {
   applyMiddleware,
   compose,
-  combineReducers,
   createStore
 } from 'redux'
 import thunk from 'redux-thunk'
-import initialState from './initialState'
-import Reducers from './reducers/index'
-
-const allReducers = combineReducers(Reducers)
+import Reducers from './reducers/reducers'
 
 const allStoreEnhancers = compose(
   applyMiddleware(thunk),
@@ -16,8 +12,7 @@ const allStoreEnhancers = compose(
 )
 
 const store = createStore(
-  allReducers,
-  initialState,
+  Reducers,
   allStoreEnhancers
 )
 

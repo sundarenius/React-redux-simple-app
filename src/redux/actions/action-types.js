@@ -1,1 +1,5 @@
 export const UPDATE_DUMMY = 'UPDATE_DUMMY'
+export const SET_SIDEBAR = 'SET_SIDEBAR'
+export const SET_FLICKR_GALLERY = 'SET_FLICKR_GALLERY'
+export const ADD_TO_ARCHIVE = 'ADD_TO_ARCHIVE'
+export const DELETE_IMG = 'DELETE_IMG'
